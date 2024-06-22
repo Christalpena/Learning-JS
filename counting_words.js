@@ -8,19 +8,28 @@
  */
 
 function countingWords(str){
+    const alfabeth = ['a','b','c','d','e','f','g','h','i','j','k','l','ñ','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
     let wordList = []
     let word = ""
-    const patterns = /^[a-zA-Z0-9]*$/
     for(let a = 0; a < str.length; a++){
-        console.log(patterns)
-        if(str[a] !== patterns){
-            wordList.push(word)
-            word = ""
-        }else{
+        if(alfabeth.includes(str[a].toLowerCase())){
             word += str[a]
+        }else{
+            if(word){
+                wordList.push(word.toLowerCase())
+                word = ""
+            }
         }
     }
     return wordList
+
 }
 
-console.log(countingWords("Hola, mi nombre es brais. Mi nombre completo es Brais Moure (MoureDev)."))
+const wordList = countingWords("Hola, mi nombre es brais. Mi nombre completo es Brais Moure (MoureDev).")
+for(let b = 0; b < wordList.length; b++){
+    if(wordList.indexOf(wordList[b]) == b){
+        let numWords = wordList.filter(word => word == wordList[b]).length
+        console.log(`The word '${wordList[b]}' appers ${numWords} ${numWords > 1 ? 'times' : 'time'}`)
+    }
+}
+
