@@ -17,7 +17,11 @@ function Codigo_morse(str){
         F:'..-.',G:'--.',H:'....',I:'..',J:'.---',
         K:'-.-',L:'.-..',M:'--',N:'-.',O:'---',P:'.--.',
         Q:'--.-',R:'.-.',S:'...',T:'-',U:'..-',V:'...-',
-        W:'.--',X:'-..-',Y:'-.--',Z:'--..'
+        W:'.--',X:'-..-',Y:'-.--',Z:'--..',
+        1:'.----',2:'..---',4:'....-',5:'.....',6:'-....',
+        7:'--...',8:'---..',9:'----.',0:'-----',
+        '.':'.-.-.-',',':'--..--','?':'..--..','/':'-..-.',
+        ':':'---...',';':'-.-.-.',
     }
     const word = []
     if(str.includes('-') || str.includes('.') || str.includes('..')){
@@ -25,33 +29,31 @@ function Codigo_morse(str){
         for(let a = 0;  a <= str.length; a++){
             if(str[a] !== " " && a !== str.length){
                 letter += str[a]
-            }else{
+            }else {
                 let morse_Code_keys = Object.keys(morse_code)
                 for(let b = 0; b < morse_Code_keys.length; b++){
-                    let aa = morse_Code_keys[b]
-
-                    if(morse_code[aa] == letter){
+                    let morse_code_letter = morse_Code_keys[b]
+                    if(morse_code[morse_code_letter] == letter){
                         word.push(morse_Code_keys[b])
                     }
                 }
                 letter = ""
-            }
-
+                if(str[a] == " " && str[a+1] == " "){
+                    word.push(" ")
+                }
+            }         
         }
     }else{
         for(let i = 0; i < str.length; i++){
             if(str[i] !== " "){
                 word.push(morse_code[`${str[i].toUpperCase()}`] + " ")
             }else{
-                word.push("  ")
+                word.push(" ")
             }
         }
     }
-
     return word.join("")
 }
 
 
-console.log(Codigo_morse(".... --- .-.. .-  -.-. --- -- ---  . ... - .- ..."))
-
-
+console.log(Codigo_morse(".... --- .-.. .- --..--  -- ..  -. --- -- -... .-. .  . ...  -.-. .... .-. .. ... - .- .-.. --..--  -.-. ..- .- .-..  . ...  - ..-  -. --- -- -... .-. . ..--.."))
