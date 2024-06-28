@@ -6,7 +6,7 @@
  *   0, 1, 1, 2, 3, 5, 8, 13...
  */
 
-function Fibonacci () {
+function fibonacci () {
     let lista = []
 
     for(let a = 0; a < 50; a++ ){
@@ -19,4 +19,4 @@ function Fibonacci () {
     return lista
 }
 
-console.log(Fibonacci())
+console.log(fibonacci())

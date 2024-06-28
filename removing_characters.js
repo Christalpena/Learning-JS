@@ -7,28 +7,19 @@
  *   estén presentes en str1.
  */
 
-function removingCaracters(caracter_array){
-    for(let i = 0; i < a.length; i++){
-        if(!b.includes(a[i])){
-            caracter_array.push(a[i])
-        }
-    }
-    return caracter_array
-}
+
 function removingCaracters(str1,str2){
     let out1 = []
     let out2 =  []
-    let b = str2.toLowerCase().split("")
-    let a = str1.toLowerCase().split("")
+    let str1_letters = str1.toLowerCase().split("")
+    let str2_letters = str2.toLowerCase().split("")
 
-    
-
-    for(let d = 0; d < a.length; d++){
-        if(!a.includes(b[d])){
-            out2.push(b[d])
-        }
+    for(let i = 0; i < str1.length; i++){
+        out1 = str1_letters.filter(letter => !str2_letters.includes(letter))
+        out2 = str2_letters.filter(letter => !str1_letters.includes(letter))
     }
+
     return `The result of OUT1 is: ${out1} \nThe result of OUT2 is: ${out2}`
 }
 
-console.log(removingCaracters("brais","moure"))
+console.log(removingCaracters("brais Hola","moure"))
