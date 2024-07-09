@@ -41,7 +41,7 @@ function vendigMachine(money,productNum){
         }
 
     }else{
-        return 'The money is not enougt, \nYour money need to be less than 200 \nor the Product does not exists'
+        return 'The money is not enough, \nYour money need to be less than 200 \nor the Product does not exists'
     }
 
 }
