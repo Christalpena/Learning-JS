@@ -19,7 +19,7 @@ function figures(size,fig){
             console.log(simbol.repeat(size*2))
         }
 
-    }else{
+    }else{ 
         for(let i = 0; i < size; i++){
             let simbol = '*  '
             console.log(simbol.repeat(size))
